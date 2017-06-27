@@ -19,8 +19,16 @@
         android:onClick="onSubmit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/tvCompose"
+        android:layout_below="@+id/etCompose"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="178dp"
         android:text="Tweet" />
+
+    <TextView
+        android:id="@+id/tvChar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/etCompose"
+        android:text="140" />
 </RelativeLayout>
