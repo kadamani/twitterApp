@@ -37,4 +37,46 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentTop="true"
         android:text="TextView" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:weightSum="1"
+        android:layout_below="@+id/ivProfileImage"
+        android:layout_alignStart="@+id/tvBody">
+
+        <Button
+            android:id="@+id/replyBtn"
+            android:layout_width="21dp"
+            android:layout_height="19dp"
+            android:layout_alignBottom="@+id/tvBody"
+            android:background="@drawable/replyicon" />
+
+        <Button
+            android:id="@+id/rtBtn"
+            android:layout_width="21dp"
+            android:layout_height="19dp"
+            android:layout_marginLeft="30dp"
+            android:layout_alignBottom="@+id/tvBody"
+            android:background="@drawable/ic_vector_retweet_stroke" />
+
+        <Button
+            android:id="@+id/favBtn"
+            android:layout_width="21dp"
+            android:layout_height="19dp"
+            android:layout_alignBottom="@+id/tvBody"
+            android:layout_marginLeft="30dp"
+            android:background="@drawable/ic_vector_heart_stroke" />
+
+        <Button
+            android:id="@+id/dmBtn"
+            android:layout_width="21dp"
+            android:layout_height="19dp"
+            android:layout_alignBottom="@+id/tvBody"
+            android:layout_marginLeft="30dp"
+            android:background="@drawable/ic_vector_messages_stroke" />
+
+    </LinearLayout>
+
 </RelativeLayout>
