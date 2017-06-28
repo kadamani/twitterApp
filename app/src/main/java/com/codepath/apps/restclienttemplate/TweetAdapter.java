@@ -35,7 +35,19 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder> 
         ViewHolder viewHolder = new ViewHolder(tweetView);
         return viewHolder;
     }
-    // bind the values based on position of element
+
+    // Clean all elements of the recycler
+    public void clear() {
+        mTweets.clear();
+        notifyDataSetChanged();
+    }
+
+    // Add a list of items -- change to type used
+    public void addAll(List<Tweet> list) {
+        mTweets.addAll(list);
+        notifyDataSetChanged();
+    }
+
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
