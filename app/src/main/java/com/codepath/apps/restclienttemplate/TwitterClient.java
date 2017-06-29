@@ -48,8 +48,18 @@ public class TwitterClient extends OAuthBaseClient {
 		RequestParams params = new RequestParams();
 		params.put("count", 25);
 		params.put("since_id", 1);
+        // params.put("include_entities", true);
 		client.get(apiUrl, params, handler);
 	}
+
+	public void favTweet(long id, AsyncHttpResponseHandler handler) {
+        // use the id to generate post url
+        // format of post url: https://api.twitter.com/1.1/favorites/create.json?id=_____
+        String apiUrl = getApiUrl("favorites/create.json");
+        RequestParams params = new RequestParams();
+        params.put("id", id);
+        client.post(apiUrl, params, handler);
+    }
 
 	public void sendTweet(String message, AsyncHttpResponseHandler handler) {
 		String apiUrl = getApiUrl("statuses/update.json");

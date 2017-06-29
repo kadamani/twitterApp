@@ -46,36 +46,41 @@
         android:layout_below="@+id/ivProfileImage"
         android:layout_alignStart="@+id/tvBody">
 
-        <Button
+        <ImageButton
             android:id="@+id/replyBtn"
+            android:onClick="onReplyAction"
             android:layout_width="21dp"
             android:layout_height="19dp"
+            android:background="@android:color/transparent"
             android:layout_alignBottom="@+id/tvBody"
-            android:background="@drawable/replyicon" />
+            app:srcCompat="@drawable/replyicon" />
 
-        <Button
+        <ImageButton
             android:id="@+id/rtBtn"
             android:layout_width="21dp"
             android:layout_height="19dp"
             android:layout_marginLeft="30dp"
+            android:background="@android:color/transparent"
             android:layout_alignBottom="@+id/tvBody"
-            android:background="@drawable/ic_vector_retweet_stroke" />
+            app:srcCompat="@drawable/ic_vector_retweet_stroke" />
 
-        <Button
+        <ImageButton
             android:id="@+id/favBtn"
             android:layout_width="21dp"
             android:layout_height="19dp"
             android:layout_alignBottom="@+id/tvBody"
+            android:background="@android:color/transparent"
             android:layout_marginLeft="30dp"
-            android:background="@drawable/ic_vector_heart_stroke" />
+            app:srcCompat="@drawable/ic_vector_heart_stroke" />
 
-        <Button
+        <ImageButton
             android:id="@+id/dmBtn"
             android:layout_width="21dp"
             android:layout_height="19dp"
             android:layout_alignBottom="@+id/tvBody"
+            android:background="@android:color/transparent"
             android:layout_marginLeft="30dp"
-            android:background="@drawable/ic_vector_messages_stroke" />
+            app:srcCompat="@drawable/ic_vector_messages_stroke" />
 
     </LinearLayout>
 
