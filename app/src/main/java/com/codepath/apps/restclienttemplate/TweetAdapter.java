@@ -3,7 +3,6 @@ package com.codepath.apps.restclienttemplate;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,7 +16,6 @@ import com.codepath.apps.restclienttemplate.models.Tweet;
 import com.loopj.android.http.JsonHttpResponseHandler;
 
 import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 import org.parceler.Parcels;
 
@@ -66,6 +64,9 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder> 
         // get data according to position
         Tweet tweet = mTweets.get(position);
 
+        if (tweet.favorited) {
+            holder.favBtn.setImageResource(R.drawable.ic_vector_heart);
+        }
         // populate views according to data
         holder.tvUsername.setText(tweet.user.name);
         holder.tvBody.setText(tweet.body);
@@ -108,12 +109,12 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder> 
                             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                                 try {
                                     Toast.makeText(v.getContext(), "favorite button clicked", Toast.LENGTH_SHORT).show();
-                                    Tweet newTweet = Tweet.fromJSON(response);
                                     favBtn.setImageResource(R.drawable.ic_vector_heart);
+                                    // Tweet newTweet = Tweet.fromJSON(response);
 //                                  mTweets.add(pos, newTweet);
 
-                                } catch (JSONException e) {
-                                    Log.e("Compose Activity", "Error forming new tweet", e);
+                                } finally {
+
                                 }
                                 // super.onSuccess(statusCode, headers, response);
                             }
@@ -133,7 +134,24 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder> 
                                 super.onFailure(statusCode, headers, throwable, errorResponse);
                             }
                         });
+                        // populateTimeline();
 
+                    }
+                    else if (tweet.favorited) {
+                        client.unFavTweet(tweet.uid, new JsonHttpResponseHandler() {
+                            @Override
+                            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                                try {
+                                    Toast.makeText(v.getContext(), "unfavorite", Toast.LENGTH_SHORT).show();
+                                    favBtn.setImageResource(R.drawable.ic_vector_heart_stroke);
+                                } finally {
+
+                                }
+//                                catch (JSONException e) {
+//                                    Log.e("TweetAdapter", "error unfavoriting tweet", e);
+//                                }
+                            }
+                        });
                     }
                 }
                 else if (v.getId() == dmBtn.getId()) {
