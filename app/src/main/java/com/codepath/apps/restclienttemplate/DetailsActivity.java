@@ -29,7 +29,7 @@ public class DetailsActivity extends AppCompatActivity {
     TextView tvUsername;
     TextView tvBody;
     TextView tvAt;
-    TextView tvFav;
+    TextView tvFavs;
     ImageView ivProfileImage;
     ImageButton favoBtn;
     // ImageView preImage;
@@ -43,7 +43,7 @@ public class DetailsActivity extends AppCompatActivity {
         tvAt = (TextView) findViewById(R.id.tvAt);
         tvBody = (TextView) findViewById(R.id.tvBody);
         ivProfileImage = (ImageView) findViewById(R.id.ivProfileImage);
-        tvFav = (TextView) findViewById(R.id.tvFav);
+        tvFavs = (TextView) findViewById(R.id.tvFavs);
         favoBtn = (ImageButton) findViewById(R.id.favoBtn);
         //preImage = (ImageView) findViewById(R.id.preImage);
 
@@ -51,6 +51,7 @@ public class DetailsActivity extends AppCompatActivity {
         tweet = (Tweet) Parcels.unwrap(getIntent().getParcelableExtra(Tweet.class.getSimpleName()));
         tvUsername.setText(tweet.user.name);
         tvBody.setText(tweet.body);
+        tvFavs.setText(tweet.favoriteCount + "");
         tvAt.setText("@" + tweet.user.screenName);
         Glide.with(context).load(tweet.user.profileImageUrl).into(ivProfileImage);
         // Glide.with(context).load()

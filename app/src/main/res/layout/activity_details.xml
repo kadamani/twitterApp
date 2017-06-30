@@ -63,7 +63,7 @@
             android:layout_height="19dp"
             android:baselineAlignBottom="@id/tvBody"
             android:layout_alignStart="@+id/ivProfileImage"
-            android:layout_marginLeft="100dp"
+            android:layout_marginLeft="50dp"
             android:layout_toEndOf="@+id/ivProfileImage"
             android:background="@android:color/transparent"
             android:onClick="onReplyAction"
@@ -93,6 +93,14 @@
             android:background="@android:color/transparent"
             app:srcCompat="@drawable/ic_vector_heart_stroke" />
 
+        <TextView
+            android:id="@+id/tvFavs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/favoBtn"
+            android:layout_weight="1"
+            android:text="TextView" />
+
         <ImageButton
             android:id="@+id/dmBtn"
             android:layout_width="wrap_content"
@@ -100,8 +108,10 @@
             android:layout_alignTop="@+id/favBtn"
             android:layout_marginLeft="120dp"
             android:layout_toEndOf="@+id/favBtn"
+            android:layout_marginRight="225dp"
             android:background="@android:color/transparent"
-            app:srcCompat="@drawable/ic_vector_messages_stroke" />
+            app:srcCompat="@drawable/ic_vector_messages_stroke"
+            android:layout_weight="1" />
 
 
     </LinearLayout>
