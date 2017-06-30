@@ -104,7 +104,7 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder> 
                     // check if tweet was favorited
                     if (!tweet.favorited) {
 
-                        client.favTweet(tweet.uid, new JsonHttpResponseHandler() {
+                                client.favTweet(tweet.uid, new JsonHttpResponseHandler() {
 
                             @Override
                             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
