@@ -19,13 +19,12 @@
     <TextView
         android:id="@+id/tvUserName"
         android:layout_width="wrap_content"
-        android:layout_height="51dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="22dp"
+        android:layout_toEndOf="@+id/ivProfileImage"
         android:text="TextView"
         tools:layout_editor_absoluteX="73dp"
-        tools:layout_editor_absoluteY="16dp"
-        android:layout_marginStart="22dp"
-        android:layout_alignParentTop="true"
-        android:layout_toEndOf="@+id/ivProfileImage" />
+        tools:layout_editor_absoluteY="16dp" />
 
     <TextView
         android:id="@+id/tvBody"
@@ -34,8 +33,8 @@
         android:text="TextView"
         tools:layout_editor_absoluteX="16dp"
         tools:layout_editor_absoluteY="80dp"
-        android:layout_marginTop="17dp"
-        android:layout_below="@+id/tvUserName"
+        android:layout_marginTop="11dp"
+        android:layout_below="@+id/ivProfileImage"
         android:layout_centerHorizontal="true" />
 
     <ImageView
@@ -46,5 +45,14 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="88dp"
         app:srcCompat="@android:color/transparent" />
+
+    <TextView
+        android:id="@+id/tvAt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:layout_alignEnd="@+id/tvUserName"
+        android:layout_below="@+id/tvUserName"
+        android:layout_alignStart="@+id/tvUserName" />
 
 </RelativeLayout>

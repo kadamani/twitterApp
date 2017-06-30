@@ -22,6 +22,7 @@ public class DetailsActivity extends AppCompatActivity {
     Tweet tweet;
     TextView tvUsername;
     TextView tvBody;
+    TextView tvAt;
     ImageView ivProfileImage;
     ImageView preImage;
 
@@ -31,6 +32,7 @@ public class DetailsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_details);
 
         tvUsername = (TextView) findViewById(tvUserName);
+        tvAt = (TextView) findViewById(R.id.tvAt);
         tvBody = (TextView) findViewById(R.id.tvBody);
         ivProfileImage = (ImageView) findViewById(R.id.ivProfileImage);
         preImage = (ImageView) findViewById(R.id.preImage);
@@ -39,6 +41,7 @@ public class DetailsActivity extends AppCompatActivity {
         tweet = (Tweet) Parcels.unwrap(getIntent().getParcelableExtra(Tweet.class.getSimpleName()));
         tvUsername.setText(tweet.user.name);
         tvBody.setText(tweet.body);
+        tvAt.setText("@" + tweet.user.screenName);
         Glide.with(context).load(tweet.user.profileImageUrl).into(ivProfileImage);
         // Glide.with(context).load()
 
