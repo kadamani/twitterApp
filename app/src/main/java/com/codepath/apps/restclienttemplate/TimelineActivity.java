@@ -71,8 +71,6 @@ public class TimelineActivity extends AppCompatActivity {
 
         // set the adapter
         rvTweets.setAdapter(tweetAdapter);
-
-
         populateTimeline();
 
     }
@@ -101,8 +99,6 @@ public class TimelineActivity extends AppCompatActivity {
         // Send the network request to fetch the updated data
         // `client` here is an instance of Android Async HTTP
         // getHomeTimeline is an example endpoint.
-
-
 
         client.getHomeTimeline(0, new JsonHttpResponseHandler() {
             @Override

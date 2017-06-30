@@ -29,6 +29,7 @@ public class DetailsActivity extends AppCompatActivity {
     TextView tvUsername;
     TextView tvBody;
     TextView tvAt;
+    TextView tvFav;
     ImageView ivProfileImage;
     ImageButton favoBtn;
     // ImageView preImage;
@@ -42,6 +43,7 @@ public class DetailsActivity extends AppCompatActivity {
         tvAt = (TextView) findViewById(R.id.tvAt);
         tvBody = (TextView) findViewById(R.id.tvBody);
         ivProfileImage = (ImageView) findViewById(R.id.ivProfileImage);
+        tvFav = (TextView) findViewById(R.id.tvFav);
         favoBtn = (ImageButton) findViewById(R.id.favoBtn);
         //preImage = (ImageView) findViewById(R.id.preImage);
 
