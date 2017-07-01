@@ -35,9 +35,10 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder> 
     public TweetAdapter(List<Tweet> tweets) {
         mTweets = tweets;
     }
+
     // for each row inflate layout and pass to viewholder
     @Override
-    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType){
+    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         context = parent.getContext();
         LayoutInflater inflater = LayoutInflater.from(context);
 
@@ -92,26 +93,25 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder> 
             // make sure position is valid
             if (pos != RecyclerView.NO_POSITION) {
                 // get the movie at the position, this won't work if the class is static
-                Tweet tweet = mTweets.get(pos);
+                final Tweet tweet = mTweets.get(pos);
                 if (v.getId() == replyBtn.getId()) {
                     Toast.makeText(v.getContext(), "reply button clicked", Toast.LENGTH_LONG).show();
-                }
-                else if (v.getId() == rtBtn.getId()) {
+                } else if (v.getId() == rtBtn.getId()) {
                     Toast.makeText(v.getContext(), "retweet button clicked", Toast.LENGTH_LONG).show();
-                }
-
-                else if (v.getId() == favBtn.getId()) {
+                } else if (v.getId() == favBtn.getId()) {
 
                     // check if tweet was favorited
                     if (!tweet.favorited) {
 
-                                client.favTweet(tweet.uid, new JsonHttpResponseHandler() {
+                        client.favTweet(tweet.uid, new JsonHttpResponseHandler() {
 
                             @Override
                             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+
                                 try {
                                     Toast.makeText(v.getContext(), "favorite button clicked", Toast.LENGTH_SHORT).show();
                                     favBtn.setImageResource(R.drawable.ic_vector_heart);
+                                    tvFav.setText(tweet.favoriteCount + "");
                                     // Tweet newTweet = Tweet.fromJSON(response);
 //                                  mTweets.add(pos, newTweet);
 
@@ -138,8 +138,7 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder> 
                         });
                         // populateTimeline();
 
-                    }
-                    else if (tweet.favorited) {
+                    } else if (tweet.favorited) {
                         client.unFavTweet(tweet.uid, new JsonHttpResponseHandler() {
                             @Override
                             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
@@ -155,11 +154,9 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder> 
                             }
                         });
                     }
-                }
-                else if (v.getId() == dmBtn.getId()) {
+                } else if (v.getId() == dmBtn.getId()) {
                     Toast.makeText(v.getContext(), "dm button clicked", Toast.LENGTH_LONG).show();
-                }
-                else {
+                } else {
                     // create intent for the new activity
                     Intent intent = new Intent(context, DetailsActivity.class);
                     // serialize the movie using parceler, use its short name as a key
